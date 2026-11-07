@@ -1,7 +1,14 @@
 import { useState } from "react"
 import type { Todo } from "../types/todo"
 
-export const useTodos = () => {
+type UseTodoReturn = {
+    newTodos: Todo[];
+    addTodo: (text: string) => void;
+    delateTodo: (id: number) => void;
+    checkboxBtn: (id: number) => void;
+}
+
+export const useTodos = (): UseTodoReturn => {
     const [newTodos, setNewTodos] = useState<Todo[]>([])
     
     const addTodo = (text: string)=> {
